@@ -30,11 +30,38 @@
 
 <p>It can take some time to load and start the console.</p>
 
+<h2>File Update Tutorial</h2>
+
+One can run the following commands in the terminal to try out the <a
+href="https://docs.thistle.tech/update/get_started/file_update"
+onclick="window.open(this.href); return false;" title="File UPdate">OTA file
+update tutorial</a>.
+
+<h3>Make a new OTA update release with TRH</h3>
+
+<pre>
+  export THISTLE_TOKEN=$(cat) # Enter, paste staging project access token, and ctrl+d
+  trh --signing-method="remote" init --persist="/ota"
+  mkdir -p release
+  echo "Test Thistle File Update" > release/myapp
+  trh --signing-method="remote" prepare --target="release" --file-base-path="/ota/bin"
+  trh --signing-method="remote" release
+</pre>
+
+<h3>Get OTA update with TUC</h3>
+
+<pre>
+  # Run tuc in background
+  tuc --log-level info -c config.json & 
+  # Verify file content
+  cat /ota/bin/myapp # Should see "Test Thistle File Update"
+</pre>
+
 <hr>
 
 <p>Tested on Chromium Version 126.0.6478.126 (Official Build) (64-bit).</p>
-
 </main>
+
 <script src="./coi-serviceworker.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/xterm-pty@0.9.4/index.js"></script>
