@@ -1,74 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: #fcfcfc !important;
+      }
+      * {
+        font-family: Roboto, Arial, sans-serif;
+        font-weight: 400;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700 !important;
+      }
+      h1 {
+        /* margin-top: 60px !important; */
+      }
+      h2 {
+        /* margin-top: 50px !important; */
+      }
+      h3 {
+        margin-top: 40px !important;
+      }
+      .logo {
+        width: 150px;
+      }
+      .header {
+        display: flex;
+        flex-direction: column;
+        /* border-bottom: 1px solid #eee; */
+        padding: 10px 0px;
+      }
+      .hero-bg {
+        background: #eee;
+      }
+      .hero-container {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        padding: 70px 0px;
+      }
+      .hero-container .hero-left {
+        width: 30%;
+        padding-right: 30px;
+      }
+      .hero-container .hero-left > p:first-of-type {
+        margin-top: 20px;
+      }
+      .hero-container .hero-right {
+        width: 70%;
+        padding-left: 30px;
+        /* padding-top: 8px; */
+      }
+      .tutorial-container {
+        margin-top: 60px;
+      }
+      .icon-text {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+      }
+      .icon-text p {
+        margin-bottom: 0px;
+        margin-left: 3px;
+      }
+      .command-block {
+        background: #f5f6fa;
+        padding: 20px 25px;
+        border-radius: 10px;
+        margin-top: 20px;
+      }
+      .command-block pre {
+        margin: 0px;
+        padding: 0px;
+        white-space-collapse: preserve-breaks;
+      }
+      .footer {
+        padding: 15px 0px;
+        margin-top: 60px;
+        border-top: 1px solid #eee;
+      }
+      .subtext {
+        color: #777;
+      }
+    </style>
+    <!-- End of styles -->
 
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CFVD2ZJMDK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-CFVD2ZJMDK"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-CFVD2ZJMDK');
-</script>
-<!-- End of Google tag -->
+      gtag("config", "G-CFVD2ZJMDK");
+    </script>
+    <!-- End of Google tag -->
 
-<title>Thistle OTA update demo (x86_64)</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.css">
-</head>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
-<body>
-<main class="container">
+    <title>Thistle OTA update demo (x86_64)</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/xterm@5.1.0/css/xterm.css"
+    />
+  </head>
 
-<h1>Thistle Demo</h1>
+  <body>
+    <div class="header">
+      <div class="container">
+        <img class="logo" src="assets/images/logo.png" />
+      </div>
+    </div>
 
-<h2>Terminal</h2>
-<div class="d-inline-block" id="tib"></div>
+    <div class="wrapper">
+      <div class="hero-bg">
+        <div class="container">
+          <div class="hero-container">
+            <div class="hero-left">
+              <h1>Try Thistle For Yourself</h1>
+              <p>
+                You can get signed OTA updates running on your devices in just a
+                few commands.</p><p>Follow the file update tutorial below using the
+                live terminal to see how easy it is to increase your security
+                resilience with Thistle.</p>
+              </p>
+            </div>
+            <div class="hero-right">
+              <!-- <h2>Terminal</h2> -->
+              <div id="tib"></div>
+              <div class="icon-text">
+                <ion-icon name="information-circle"></ion-icon>
+                <p>It can take some time to load and start the console.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="tutorial-container">
+          <h2>File Update Tutorial</h2>
+          <p>
+            You can run the following commands in the terminal above to try out
+            the
+            <a
+              href="https://docs.thistle.tech/update/get_started/file_update"
+              onclick="window.open(this.href); return false;"
+              title="File UPdate"
+              >OTA file update tutorial</a
+            >.
+          </p>
 
-<p>It can take some time to load and start the console.</p>
+          <h3>
+            Make a new OTA update release with Thistle Release Helper (TRH)
+          </h3>
 
-<h2>File Update Tutorial</h2>
+          <div class="command-block">
+            <pre>
+    export THISTLE_TOKEN=$(cat) # Enter, paste staging project access token, and ctrl+d
+    trh --signing-method="remote" init --persist="/ota"
+    mkdir -p release
+    echo "Test Thistle File Update" > release/myapp
+    trh --signing-method="remote" prepare --target="release" --file-base-path="/ota/bin"
+    trh --signing-method="remote" release</pre
+            >
+          </div>
 
-One can run the following commands in the terminal to try out the <a
-href="https://docs.thistle.tech/update/get_started/file_update"
-onclick="window.open(this.href); return false;" title="File UPdate">OTA file
-update tutorial</a>.
+          <h3>Get OTA update with Thistle Update Client (TUC)</h3>
 
-<h3>Make a new OTA update release with TRH</h3>
+          <div class="command-block">
+            <pre>
+    # Run tuc in background
+    tuc --log-level info -c config.json & 
+    # Verify file content
+    cat /ota/bin/myapp # Should see "Test Thistle File Update"</pre
+            >
+          </div>
+        </div>
+      </div>
+      <div class="footer subtext">
+        <div class="container">
+          Tested on Chromium Version 126.0.6478.126 (Official Build) (64-bit)
+        </div>
+      </div>
+    </div>
 
-<pre>
-  export THISTLE_TOKEN=$(cat) # Enter, paste staging project access token, and ctrl+d
-  trh --signing-method="remote" init --persist="/ota"
-  mkdir -p release
-  echo "Test Thistle File Update" > release/myapp
-  trh --signing-method="remote" prepare --target="release" --file-base-path="/ota/bin"
-  trh --signing-method="remote" release
-</pre>
-
-<h3>Get OTA update with TUC</h3>
-
-<pre>
-  # Run tuc in background
-  tuc --log-level info -c config.json & 
-  # Verify file content
-  cat /ota/bin/myapp # Should see "Test Thistle File Update"
-</pre>
-
-<hr>
-
-<p>Tested on Chromium Version 126.0.6478.126 (Official Build) (64-bit).</p>
-</main>
-
-<script src="./coi-serviceworker.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/xterm-pty@0.9.4/index.js"></script>
-<script src="./src/stack.js"></script>
-<script src="./worker.js"></script>
-<!-- Modify the 4th and 5th input arguments of startWasi to use a different container image -->
-<script>startWasi("tib", "./src/worker.js"+location.search, location.origin + "/tib-demo" + "/tib_containers/tib-1.2.1_", 3);</script>
-</body>
-
+    <script src="./coi-serviceworker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.1.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-pty@0.9.4/index.js"></script>
+    <script src="./src/stack.js"></script>
+    <script src="./worker.js"></script>
+    <!-- Modify the 4th and 5th input arguments of startWasi to use a different container image -->
+    <script>
+      startWasi(
+        "tib",
+        "./src/worker.js" + location.search,
+        location.origin + "/tib-demo" + "/tib_containers/tib-1.2.1_",
+        3
+      );
+    </script>
+  </body>
 </html>
