@@ -5,9 +5,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico" />
     <style>
       body {
         background: #fcfcfc !important;
@@ -22,12 +23,6 @@
       h4 {
         font-weight: 700 !important;
       }
-      h1 {
-        /* margin-top: 60px !important; */
-      }
-      h2 {
-        /* margin-top: 50px !important; */
-      }
       h3 {
         margin-top: 40px !important;
       }
@@ -37,11 +32,26 @@
       .header {
         display: flex;
         flex-direction: column;
-        /* border-bottom: 1px solid #eee; */
         padding: 10px 0px;
+        justify-content: space-between;
+      }
+      .header-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .header-contents a {
+        color: #3D4148;
+        text-decoration: none;
+        font-weight: 600;
+      }
+       .header-contents a:hover {
+        color: rgb(189,94,107);
       }
       .hero-bg {
-        background: #eee;
+        color: #fff !important;
+        background-color: #102624;
       }
       .hero-container {
         display: flex;
@@ -59,7 +69,9 @@
       .hero-container .hero-right {
         width: 70%;
         padding-left: 30px;
-        /* padding-top: 8px; */
+      }
+      .terminal {
+        min-width: 320px;
       }
       .tutorial-container {
         margin-top: 60px;
@@ -71,6 +83,8 @@
         margin-top: 5px;
       }
       .icon-text p {
+        font-weight: 300;
+        font-size: 0.85rem;
         margin-bottom: 0px;
         margin-left: 3px;
       }
@@ -92,6 +106,21 @@
       }
       .subtext {
         color: #777;
+      }
+      @media only screen and (max-width: 991px) {
+        .hero-container {
+          flex-direction: column;
+          align-items: start;
+        }
+        .hero-container .hero-left {
+          width: 100%;
+          padding-right: 0px;
+        }
+        .hero-container .hero-right {
+          width: 100%;
+          padding-left: 0px;
+          margin-top: 40px;
+        }
       }
     </style>
     <!-- End of styles -->
@@ -142,7 +171,17 @@
   <body>
     <div class="header">
       <div class="container">
-        <img class="logo" src="assets/images/logo.png" />
+        <div class="header-contents">
+          <img class="logo" src="assets/images/logo.png" />
+          <a
+            href="https://docs.thistle.tech"
+            rel="noopener"
+            target="_blank"
+            title="Docs"
+          >
+            Docs
+          </a>
+        </div>
       </div>
     </div>
 
@@ -161,7 +200,7 @@
             </div>
             <div class="hero-right">
               <!-- <h2>Terminal</h2> -->
-              <div id="tib"></div>
+              <div id="tib" class="terminal"></div>
               <div class="icon-text">
                 <ion-icon name="information-circle"></ion-icon>
                 <p>It can take some time to load and start the console.</p>
@@ -178,8 +217,9 @@
             the
             <a
               href="https://docs.thistle.tech/update/get_started/file_update"
-              onclick="window.open(this.href); return false;"
-              title="File UPdate"
+              rel="noopener"
+              target="_blank"
+              title="File Update"
               >OTA file update tutorial</a
             >.
           </p>
