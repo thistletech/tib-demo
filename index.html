@@ -46,7 +46,7 @@
         text-decoration: none;
         font-weight: 600;
       }
-       .header-contents a:hover {
+      .header-contents a:hover {
         color: rgb(189,94,107);
       }
       .hero-bg {
@@ -71,7 +71,7 @@
         padding-left: 30px;
       }
       .terminal {
-        min-width: 320px;
+        min-width: 720px;
       }
       .tutorial-container {
         margin-top: 60px;
@@ -107,7 +107,13 @@
       .subtext {
         color: #777;
       }
-      @media only screen and (max-width: 991px) {
+
+
+      /* xterm */
+      .xterm-viewport {
+        border-radius: 10px;
+      }
+      @media only screen and (max-width: 1200px) {
         .hero-container {
           flex-direction: column;
           align-items: start;
@@ -122,6 +128,12 @@
           margin-top: 40px;
         }
       }
+ @media only screen and (max-width: 783px) {
+.overflow-wrapper {
+  overflow-x: auto;
+}
+      }
+     
     </style>
     <!-- End of styles -->
 
@@ -197,7 +209,9 @@
               </p>
             </div>
             <div class="hero-right">
-              <div id="tib" class="terminal"></div>
+              <div class="overflow-wrapper">
+                <div id="tib" class="terminal"></div>
+              </div>
               <div class="icon-text">
                 <ion-icon name="information-circle"></ion-icon>
                 <p>It can take some time to load and start the console.</p>
