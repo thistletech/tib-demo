@@ -150,7 +150,7 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
 
-    <title>Thistle OTA update demo (x86_64)</title>
+    <title>Thistle OTA update demo</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -250,7 +250,9 @@
       </div>
       <div class="footer subtext">
         <div class="container">
-          Tested on Chromium Version 126.0.6478.126 (Official Build) (64-bit)
+          Tested on Chromium Version 126.0.6478.126 (Official Build) (64-bit),
+          Chrome Version 127.0.6533.120 (Official Build), and Safari Version
+          17.6 (19618.3.11.11.5).
         </div>
       </div>
     </div>
@@ -260,7 +262,7 @@
     <script src="https://cdn.jsdelivr.net/npm/xterm-pty@0.9.4/index.js"></script>
     <script src="./src/stack.js"></script>
     <script src="./worker.js"></script>
-    <!-- Modify the 4th and 5th input arguments of startWasi to use a different container image -->
+    <!-- Modify the 3rd and 4th input arguments of startWasi to use a different container image -->
     <script>
       startWasi(
         "tib",
