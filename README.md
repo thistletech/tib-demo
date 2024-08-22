@@ -1,7 +1,7 @@
 # Thistle-in-browser Demo
 
 Code in this repository is deployed using GitHub pages, at
-<https://thistletech.github.io/tib-demo>.
+<https://demo.thistle.tech>.
 
 The demo is inspired by and based on the framework provided in the excellent
 GitHub project
