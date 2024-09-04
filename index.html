@@ -308,22 +308,19 @@
         const userAgent = navigator.userAgent.toLowerCase();
         const vendor = navigator.vendor.toLowerCase();
 
-        // Check if the user is using Safari
         const isSafari = (
           vendor.includes("apple") &&
           !userAgent.includes("chrome") &&
           !userAgent.includes("chromium") &&
-          !userAgent.includes("crios") &&  // Chrome on iOS
           !userAgent.includes("firefox") &&
           !userAgent.includes("opera") &&
-          !userAgent.includes("edg") &&  // Edge
+          !userAgent.includes("edg") &&
           !userAgent.includes("brave")
         );
 
         // Check if the user is on an iPhone
         const isIPhone = userAgent.includes("iphone");
 
-        // Return true only if it's Safari on an iPhone
         return isSafari || isIPhone;
       }
       const showBanner = isSafariOrOnIPhone();
