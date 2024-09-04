@@ -113,6 +113,21 @@
       .xterm-viewport {
         border-radius: 10px;
       }
+       .top-banner {
+          padding: 5px;
+          font-size: .9rem;
+          background-color: #eee;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+        }
+        .hidden {
+          display: none;
+        }
+        .visible {
+           display: flex;
+        }
       @media only screen and (max-width: 1200px) {
         .hero-container {
           flex-direction: column;
@@ -180,6 +195,7 @@
     />
   </head>
   <body>
+    <div id="topBanner" class="top-banner hidden">Thistle Terminal Emulator currently does not work on Safari or iOS.</div>
     <div class="header">
       <div class="container">
         <div class="header-contents">
@@ -283,6 +299,33 @@
         location.origin + "/tib-demo" + "/tib_containers/tib-1.2.1_",
         3
       );
+    </script>
+    <script>
+     function isSafariOrOnIPhone() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        const vendor = navigator.vendor.toLowerCase();
+
+        // Check if the user is using Safari
+        const isSafari = (
+          vendor.includes("apple") &&
+          !userAgent.includes("chrome") &&
+          !userAgent.includes("chromium") &&
+          !userAgent.includes("crios") &&  // Chrome on iOS
+          !userAgent.includes("firefox") &&
+          !userAgent.includes("opera") &&
+          !userAgent.includes("edg") &&  // Edge
+          !userAgent.includes("brave")
+        );
+
+        // Check if the user is on an iPhone
+        const isIPhone = userAgent.includes("iphone");
+
+        // Return true only if it's Safari on an iPhone
+        return isSafari || isIPhone;
+      }
+      const showBanner = isSafariOrOnIPhone();
+      const topBanner = document.getElementById("topBanner");
+      if(showBanner) topBanner.classList.add("visible");
     </script>
   </body>
 </html>
