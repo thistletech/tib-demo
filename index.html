@@ -264,7 +264,7 @@
           <div class="command-block">
             <pre>
     export THISTLE_TOKEN=$(cat) # Enter, paste staging project access token, and ctrl+d
-    trh --signing-method="remote" init --persist="/ota"
+    trh --signing-method="remote" init
     mkdir -p release
     echo "Test Thistle File Update" > release/myapp
     trh --signing-method="remote" prepare --target="release" --file-base-path="/ota/bin"
@@ -276,8 +276,14 @@
 
           <div class="command-block">
             <pre>
+    # Create tuc-config.json file
+    trh --signing-method="remote" gen-device-config \
+      --device-name="demo-device" \
+      --enrollment-type="pre-enroll" \
+      --persist="/ota" \
+      --config-path="./tuc-config.json"
     # Run tuc in background
-    tuc --log-level info -c config.json & 
+    tuc --log-level info -c tuc-config.json & 
     # Verify file content
     cat /ota/bin/myapp # Should see "Test Thistle File Update"</pre
             >
@@ -313,7 +319,7 @@
       startWasi(
         "tib",
         "./src/worker.js" + location.search,
-        location.origin + "/tib-demo" + "/tib_containers/tib-1.5.0_",
+        location.origin + "/tib-demo" + "/tib_containers/tib-1.6.0_",
         3
       );
     </script>
