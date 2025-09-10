@@ -277,7 +277,8 @@
           <div class="command-block">
             <pre>
     # Create tuc-config.json file
-    trh --signing-method="remote" gen-device-config --device-name="demo-device" \
+    trh --signing-method="remote" gen-device-config \
+      --device-name="demo-device" \
       --enrollment-type="pre-enroll" \
       --persist="/ota" \
       --config-path="./tuc-config.json"
